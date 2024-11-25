@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbo",
-    "start": "next start"
+    "start": "next start",
+    "supabase:gen": "npx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > app/type/supabase.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
