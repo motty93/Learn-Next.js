@@ -1,12 +1,12 @@
 import { fetchLatestInvoices } from '@/app/lib/supabase/invoices'
-import { getRevenue } from '@/app/lib/supabase/revenue'
+import { fetchRevenue } from '@/app/lib/supabase/revenue'
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices'
 import RevenueChart from '@/app/ui/dashboard/revenue-chart'
 import { lusitana } from '@/app/ui/fonts'
 import CardContainer from './components/CardContainer'
 
 export default async function Page() {
-  const revenue = await getRevenue()
+  const revenue = await fetchRevenue()
   const latestInvoices = await fetchLatestInvoices()
 
   return (
