@@ -1,13 +1,10 @@
-import type { Revenue } from '@/app/lib/definitions'
+import { fetchRevenue } from '@/app/lib/supabase/revenue'
 import { generateYAxis } from '@/app/lib/utils'
 import { lusitana } from '@/app/ui/fonts'
 import { CalendarIcon } from '@heroicons/react/24/outline'
 
-export default async function RevenueChart({
-  revenue,
-}: {
-  revenue: Revenue[]
-}) {
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue()
   const chartHeight = 350
   const { yAxisLabels, topLabel } = generateYAxis(revenue)
   if (!revenue || revenue.length === 0) {

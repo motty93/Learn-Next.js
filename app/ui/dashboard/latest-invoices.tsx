@@ -1,16 +1,12 @@
+import { fetchLatestInvoices } from '@/app/lib/supabase/invoices'
 import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { lusitana } from '@/app/ui/fonts'
-import { LatestInvoicesRow } from '@/app/lib/supabase/invoices'
 import { formatCurrency } from '@/app/lib/utils'
 
-type LatestInvoicesProps = {
-  latestInvoices: LatestInvoicesRow[]
-}
-
-export default async function LatestInvoices(props: LatestInvoicesProps) {
-  const { latestInvoices } = props
+export default async function LatestInvoices() {
+  const latestInvoices = await fetchLatestInvoices()
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
